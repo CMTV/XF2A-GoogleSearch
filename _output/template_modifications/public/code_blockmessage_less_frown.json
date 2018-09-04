@@ -1,0 +1,9 @@
+{
+    "template": "core_blockmessage.less",
+    "description": "Adding sad face as a block message icon",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": ".m-blockMessageVariants()\n{",
+    "replace": "$0\n\n@GoogleSearchFrown-featureColor: #c84448;\n&&--GoogleSearchFrown\n{\n\t.xf-contentAccentBase();\n\tborder-left: @xf-borderSizeFeature solid @important-featureColor;\n\n\t.m-textColoredLinks();\n}\n&--GoogleSearchFrown&--iconic:before\n{\n\t.m-faContent(@fa-var-frown-o);\n\tcolor: @important-featureColor;\n}"
+}

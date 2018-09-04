@@ -1,0 +1,13 @@
+{
+    "edit_format": "textbox",
+    "edit_format_params": "",
+    "data_type": "string",
+    "sub_options": [],
+    "validation_class": "",
+    "validation_method": "",
+    "default_value": "",
+    "relations": {
+        "GoogleSearch_options": 10,
+        "searchOptions": 200
+    }
+}

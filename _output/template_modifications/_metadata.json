@@ -1,0 +1,17 @@
+{
+    "public/PAGE_CONTAINER_google_search_button.json": {
+        "hash": "8d434f006dc98f3fea269ec7d1961b69"
+    },
+    "public/code_blockmessage_less_frown.json": {
+        "hash": "64c4d2980aba87ac45840e4594e50175"
+    },
+    "public/helper_js_global_style.json": {
+        "hash": "eb112e1016cd7e38d228a4b90d2e821c"
+    },
+    "public/search_form_google_search_tab.json": {
+        "hash": "a6bca920492fa47fba14559a650cee10"
+    },
+    "public/search_results_tabs.json": {
+        "hash": "a33dd8c1daf91c021077f18ca4cefcf7"
+    }
+}

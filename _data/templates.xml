@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="public" title="GoogleSearch.less" version_id="1000070" version_string="1.0.0"><![CDATA[button.button--primary.google-search-button
+{
+	min-width: 40px;
+}]]></template>
+  <template type="public" title="GoogleSearch_forum_search_results_with_google" version_id="1000170" version_string="1.0.1"><![CDATA[<xf:css src="GoogleSearch_results.less" />
+
+<xf:js prod="GoogleSearch/search_results_tabs.min.js" dev="GoogleSearch/search_results_tabs.js" addon="GoogleSearch" />
+
+<h2 class="block-tabHeader block-tabHeader--searchResultsTabs tabs hScroller" data-xf-init="h-scroller results-tabs">
+	<span class="hScroller-scroll">
+		<span class="tabs-tab is-active" id="forum-search-results">
+			{{ phrase('GoogleSearch_forum_search') }}
+		</span>
+
+		<span class="tabs-tab" id="google-search-results">
+			{{ phrase('GoogleSearch_google_search') }}
+		</span>
+	</span>
+</h2>
+
+<div class="block-body google-search-results" style="display: none;">
+	<xf:js>
+		(function() {
+		var cx = "{$xf.options.GoogleSearch_id}";
+		var gcse = document.createElement('script');
+		gcse.type = 'text/javascript';
+		gcse.async = true;
+		gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(gcse, s);
+		})();
+	</xf:js>
+	<gcse:search></gcse:search>
+	<gcse:searchresults></gcse:searchresults>
+</div>]]></template>
+  <template type="public" title="GoogleSearch_results.less" version_id="1000170" version_string="1.0.1"><![CDATA[.google-search-block,
+.google-search-results
+{
+	*
+	{
+		box-sizing: content-box;
+	}
+	
+	.gcsc-branding 
+	{ 
+		display: none!important;
+	}
+}]]></template>
+  <template type="public" title="GoogleSearch_search_form" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('GoogleSearch_google_search') }}</xf:title>
+
+<xf:textboxrow name="search_query"
+			   label="{{ phrase('GoogleSearch_search_query') }}"
+			   explain="{{ phrase('GoogleSearch_search_query_explain') }}" />]]></template>
+  <template type="public" title="GoogleSearch_search_results" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('GoogleSearch_google_search') }}</xf:title>
+
+<xf:css src="GoogleSearch_results.less" />
+
+<xf:breadcrumb href="{{ link('google-search') }}">{{ phrase('search') }}</xf:breadcrumb>
+
+<xf:head option="robots"><meta name="robots" content="noindex" /></xf:head>
+
+<xf:if is="$failedType">
+	<xf:if is="{{ $failedType == 'no_results' }}">
+		<div class="blockMessage blockMessage--iconic blockMessage--GoogleSearchFrown">
+			<b>{{ phrase('GoogleSearch_no_results_found') }}</b><br>
+			{{ phrase('GoogleSearch_we_have_tried_Google_search') }}
+		</div>
+	<xf:else />
+		<div class="blockMessage blockMessage--iconic blockMessage--GoogleSearchFrown">
+			<b>{{ phrase('GoogleSearch_search_failed') }}</b><br>
+			{$explain}
+		</div>
+	</xf:if>
+</xf:if>
+
+<div class="block">
+	<div class="block-container google-search-block">
+		<xf:js>
+			(function() {
+			var cx = "{$xf.options.GoogleSearch_id}";
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+			})();
+		</xf:js>
+		<gcse:search></gcse:search>
+		<gcse:searchresults></gcse:searchresults>
+	</div>
+</div>]]></template>
+  <template type="public" title="GoogleSearch_search_tab" version_id="1000070" version_string="1.0.0"><![CDATA[<a href="{{ link('google-search') }}" class="tabs-tab{{ $type == 'google-search' ? ' is-active' : '' }}">
+	{{ phrase('GoogleSearch_google_search') }}
+</a>]]></template>
+</templates>

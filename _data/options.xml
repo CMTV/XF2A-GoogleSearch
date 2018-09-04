@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="GoogleSearch_id" edit_format="textbox" data_type="string">
+    <default_value></default_value>
+    <relation group_id="GoogleSearch_options" display_order="10"/>
+    <relation group_id="searchOptions" display_order="200"/>
+  </option>
+  <option option_id="GoogleSearch_tryAnyways" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="GoogleSearch_options" display_order="110"/>
+    <relation group_id="searchOptions" display_order="210"/>
+  </option>
+</options>

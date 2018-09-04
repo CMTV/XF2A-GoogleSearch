@@ -1,0 +1,32 @@
+{
+    "public/GoogleSearch.less": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "bc9bddfc7af6d242abf3e9289e584bbb"
+    },
+    "public/GoogleSearch_forum_search_results_with_google.html": {
+        "version_id": 1000170,
+        "version_string": "1.0.1",
+        "hash": "8766aac55d3f714f253d8d5d8d4c9558"
+    },
+    "public/GoogleSearch_results.less": {
+        "version_id": 1000170,
+        "version_string": "1.0.1",
+        "hash": "a2d921a87f03ce08d44abf1011968fa4"
+    },
+    "public/GoogleSearch_search_form.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "0b002ba4755daef51f30819e47df5801"
+    },
+    "public/GoogleSearch_search_results.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "d83fd6a82d7167109434803f8dacafad"
+    },
+    "public/GoogleSearch_search_tab.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "315df63805aca0f0227e0e447fc84b0f"
+    }
+}

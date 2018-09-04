@@ -1,0 +1,16 @@
+{
+    "legacy_addon_id": "",
+    "title": "Google Search",
+    "description": "Seamless integration of Google Search Engine with your forum search system.",
+    "version_id": 1000170,
+    "version_string": "1.0.1",
+    "dev": "CMTV",
+    "dev_url": "https://xenforo.com/community/resources/authors/cmtv.162075/",
+    "faq_url": "",
+    "support_url": "",
+    "extra_urls": {
+        "My addons": "https://xenforo.com/community/resources/authors/cmtv.162075/"
+    },
+    "require": [],
+    "icon": "addon_icon.png"
+}

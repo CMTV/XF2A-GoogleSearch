@@ -1,0 +1,11 @@
+{
+    "route_type": "public",
+    "route_prefix": "google-search",
+    "sub_name": "",
+    "format": "",
+    "build_class": "",
+    "build_method": "",
+    "controller": "GoogleSearch:Search",
+    "context": "",
+    "action_prefix": ""
+}

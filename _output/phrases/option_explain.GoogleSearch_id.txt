@@ -1,0 +1,4 @@
+<div class="blockMessage blockMessage--iconic blockMessage--important" style="margin: 0 2px;">
+<b>Register your <a href="https://cse.google.com/cse/create/new" target="_blank">Google Search Engine</a> and put its ID here.</b><br>
+Google search will not work until you provide the correct ID!
+</div>

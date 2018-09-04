@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="PAGE_CONTAINER_google_search_button" description="Adding google search button" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:button type="submit" class="button--primary" icon="search" />]]></find>
+    <replace><![CDATA[<div class="buttonGroup">
+	$0
+	<xf:button type="submit" formaction="{{ link('google-search') }}"
+			   data-xf-init="tooltip" title="{{ phrase('GoogleSearch_search_using_google') }}"
+			   class="button--primary google-search-button">
+		<i class="fa fa-google"></i>
+	</xf:button>
+</div>]]></replace>
+  </modification>
+  <modification type="public" template="core_blockmessage.less" modification_key="code_blockmessage_less_frown" description="Adding sad face as a block message icon" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[.m-blockMessageVariants()
+{]]></find>
+    <replace><![CDATA[$0
+
+@GoogleSearchFrown-featureColor: #c84448;
+&&--GoogleSearchFrown
+{
+	.xf-contentAccentBase();
+	border-left: @xf-borderSizeFeature solid @important-featureColor;
+
+	.m-textColoredLinks();
+}
+&--GoogleSearchFrown&--iconic:before
+{
+	.m-faContent(@fa-var-frown-o);
+	color: @important-featureColor;
+}]]></replace>
+  </modification>
+  <modification type="public" template="helper_js_global" modification_key="helper_js_global_style" description="Including addon style" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--XF:CSS-->]]></find>
+    <replace><![CDATA[$0
+
+<xf:css src="GoogleSearch.less" />]]></replace>
+  </modification>
+  <modification type="public" template="search_form" modification_key="search_form_google_search_tab" description="Adding &quot;Google search&quot; tab" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<a href="{{ link('search') }}" class="tabs-tab{{ !$type ? ' is-active' : '' }}">{{ phrase('search_everything') }}</a>]]></find>
+    <replace><![CDATA[<xf:include template="GoogleSearch_search_tab" />
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="search_results" modification_key="search_results_tabs" description="Adding search results tabs" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<div class="block-container">]]></find>
+    <replace><![CDATA[$0
+
+<xf:if is="$search.search_query">
+	<xf:include template="GoogleSearch_forum_search_results_with_google" />
+</xf:if>]]></replace>
+  </modification>
+</template_modifications>

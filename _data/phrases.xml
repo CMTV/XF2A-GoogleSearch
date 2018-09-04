@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="GoogleSearch_GSE_id_is_not_specified" version_id="1000070" version_string="1.0.0"><![CDATA[Google Search Engine ID is not specified!]]></phrase>
+  <phrase title="GoogleSearch_forum_search" version_id="1000070" version_string="1.0.0"><![CDATA[Forum search]]></phrase>
+  <phrase title="GoogleSearch_google_search" version_id="1000070" version_string="1.0.0"><![CDATA[Google search]]></phrase>
+  <phrase title="GoogleSearch_no_results_found" version_id="1000070" version_string="1.0.0"><![CDATA[No results found!]]></phrase>
+  <phrase title="GoogleSearch_search_failed" version_id="1000070" version_string="1.0.0"><![CDATA[<b>Our forum failed to perform a search!</b>]]></phrase>
+  <phrase title="GoogleSearch_search_query" version_id="1000070" version_string="1.0.0"><![CDATA[Search query]]></phrase>
+  <phrase title="GoogleSearch_search_query_explain" version_id="1000070" version_string="1.0.0"><![CDATA[Type search query and Google will find everything related on forum: threads, users, profile posts and so on...]]></phrase>
+  <phrase title="GoogleSearch_search_using_google" version_id="1000070" version_string="1.0.0"><![CDATA[Search using Google]]></phrase>
+  <phrase title="GoogleSearch_specify_search_query" version_id="1000070" version_string="1.0.0"><![CDATA[Specify search query!]]></phrase>
+  <phrase title="GoogleSearch_we_have_tried_Google_search" version_id="1000070" version_string="1.0.0"><![CDATA[We have also tried Google search. You can see the results below this block.]]></phrase>
+  <phrase title="option.GoogleSearch_id" version_id="1000070" version_string="1.0.0"><![CDATA[Google Search Engine ID]]></phrase>
+  <phrase title="option.GoogleSearch_tryAnyways" version_id="1000070" version_string="1.0.0"><![CDATA["Try anyways" mode]]></phrase>
+  <phrase title="option_explain.GoogleSearch_id" version_id="1000070" version_string="1.0.0"><![CDATA[<div class="blockMessage blockMessage--iconic blockMessage--important" style="margin: 0 2px;">
+<b>Register your <a href="https://cse.google.com/cse/create/new" target="_blank">Google Search Engine</a> and put its ID here.</b><br>
+Google search will not work until you provide the correct ID!
+</div>]]></phrase>
+  <phrase title="option_explain.GoogleSearch_tryAnyways" version_id="1000070" version_string="1.0.0"><![CDATA[If enabled, automatically performs Google search if xenForo search engine did not find anything or can't perform a search for whatever reason.]]></phrase>
+  <phrase title="option_group.GoogleSearch_options" version_id="1000070" version_string="1.0.0"><![CDATA[Google Search options]]></phrase>
+  <phrase title="option_group_description.GoogleSearch_options" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+</phrases>

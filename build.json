@@ -1,0 +1,9 @@
+{
+    "additional_files": [
+        "js/GoogleSearch"
+    ],
+    
+    "minify": [
+        "js/GoogleSearch/search_results_tabs.js"
+    ]
+}

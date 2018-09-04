@@ -1,0 +1,9 @@
+{
+    "template": "search_results",
+    "description": "Adding search results tabs",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<div class=\"block-container\">",
+    "replace": "$0\n\n<xf:if is=\"$search.search_query\">\n\t<xf:include template=\"GoogleSearch_forum_search_results_with_google\" />\n</xf:if>"
+}

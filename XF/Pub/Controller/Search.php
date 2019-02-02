@@ -1,82 +1,116 @@
 <?php
+/**
+ * Google Search xF2 addon by CMTV
+ * You can do whatever you want with this code
+ * Enjoy!
+ */
 
-namespace GoogleSearch\XF\Pub\Controller;
+namespace CMTV\GoogleSearch\XF\Pub\Controller;
 
 use XF\Mvc\ParameterBag;
+use XF\Mvc\Reply\Error;
+use XF\Mvc\Reply\Message;
+use XF\Mvc\Reply\View;
+use CMTV\GoogleSearch\Constants as C;
 
 class Search extends XFCP_Search
 {
-    protected $GoogleSearch_keywords = '';
+    public function actionIndex(ParameterBag $params)
+    {
+        $view = parent::actionIndex($params);
+
+        if (!$view instanceof View)
+        {
+            return $view;
+        }
+
+        if ($view->getViewClass() !== 'XF:Search\Form')
+        {
+            return $view;
+        }
+
+        $viewParams = $view->getParams();
+
+        if (array_key_exists('type', $viewParams) && array_key_exists('formTemplateName', $viewParams))
+        {
+            $isTypeEmpty = $viewParams['type'] == '';
+            $isGoogleType = $this->filter('type', 'str') == 'google';
+
+            if ($isTypeEmpty && $isGoogleType)
+            {
+                if (!\XF::options()->offsetGet(C::option('GSEID')))
+                {
+                    return $this->error(\XF::phrase(C::phrase('GSEID_not_specified')));
+                }
+
+                $viewParams['type'] = 'google';
+                $viewParams['formTemplateName'] = 'public:' . C::template('search_form_google');
+            }
+        }
+
+        $view->setParams($viewParams);
+
+        return $view;
+    }
 
     public function actionSearch()
     {
-        $searchType = $this->filter('search_type', 'str');
-
-        if ($searchType === 'google-search')
+        if ($this->filter('google_search', 'bool'))
         {
-            $searchQuery = trim($this->filter('search_query', 'str'));
+            $query = $this->filter('query', 'str');
+            $link = $this->buildLink('google-search', null, ['q' => $query]);
 
-            if (!$searchQuery)
+            return $this->redirect($link);
+        }
+        else
+        {
+            $reply = parent::actionSearch();
+
+            $keywords = $this->filter('keywords', 'str');
+
+            if (!$keywords)
             {
-                return $this->error(\XF::phrase('GoogleSearch_specify_search_query'));
+                return $reply;
             }
 
-            return $this->redirect($this->buildLink('google-search', null, ['q' => $searchQuery]));
-        }
-
-        $this->GoogleSearch_keywords = $this->filter('keywords', 'str');
-
-        return parent::actionSearch();
-    }
-
-    public function error($error, $code = 200)
-    {
-        if (($searchQuery = $this->GoogleSearch_keywords) && $this->isTryAnywaysEnabled())
-        {
-            return $this->tryAnyways('error', implode($error), $searchQuery);
-        }
-
-        return parent::error($error, $code);
-    }
-
-    public function actionResults(ParameterBag $params)
-    {
-        $return = parent::actionResults($params);
-
-        if (method_exists($return, 'getMessage'))
-        {
-            if ($return->getMessage() == $this->message(\XF::phrase('no_results_found'))->getMessage() && $this->isTryAnywaysEnabled())
+            if ($reply instanceof Message)
             {
-                return $this->tryAnyways('no_results', '', $params);
+                $hText = \XF::phrase(C::phrase('forum_search_problems'));
+                $bText = $reply->getMessage();
+
+                if ($bText == \XF::phrase('no_results_found'))
+                {
+                    $hText = $bText;
+                    $bText = '';
+                }
+
+                return $this->tryAnyways($hText, $bText, $keywords) ?: $reply;
             }
-        }
 
-        return $return;
+            if ($reply instanceof Error)
+            {
+                $hText = \XF::phrase(C::option('forum_could_not_perform_search'));
+                $bText = implode($reply->getErrors());
+
+                return $this->tryAnyways($hText, $bText, $keywords) ?: $reply;
+            }
+
+            return $reply;
+        }
     }
 
-    protected function runSearch(\XF\Search\Query\Query $query, array $constraints, $allowCached = true)
+    protected function tryAnyways($hText, $bText, $query)
     {
-        $return = parent::runSearch($query, $constraints, $allowCached);
-
-        if ($return->getMessage() == $this->message(\XF::phrase('no_results_found'))->getMessage() && $this->isTryAnywaysEnabled())
+        if (!\XF::options()->offsetGet(C::option('tryAnyways')))
         {
-            return $this->tryAnyways('no_results', '', $query->getKeywords());
+            return false;
         }
 
-        return $return;
-    }
-
-    protected function isTryAnywaysEnabled()
-    {
-        return \XF::options()->GoogleSearch_tryAnyways;
-    }
-
-    protected function tryAnyways($failedType, $anywaysExplain, $searchQuery)
-    {
         return $this->redirect($this->buildLink('google-search', null, [
-            'q' => $searchQuery,
-            'failedType' => $failedType,
-            'explain' => $anywaysExplain
+            'q' => $query,
+            'tryAnyways' => true,
+            'h' => $hText,
+            'b' => $bText
         ]));
     }
 }

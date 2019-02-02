@@ -5,7 +5,7 @@
     "format": "",
     "build_class": "",
     "build_method": "",
-    "controller": "GoogleSearch:Search",
+    "controller": "CMTV\\GoogleSearch:GoogleSearch",
     "context": "",
     "action_prefix": ""
 }

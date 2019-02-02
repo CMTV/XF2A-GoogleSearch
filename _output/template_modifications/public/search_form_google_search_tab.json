@@ -1,9 +1,0 @@
-{
-    "template": "search_form",
-    "description": "Adding \"Google search\" tab",
-    "execution_order": 10,
-    "enabled": true,
-    "action": "str_replace",
-    "find": "<a href=\"{{ link('search') }}\" class=\"tabs-tab{{ !$type ? ' is-active' : '' }}\">{{ phrase('search_everything') }}</a>",
-    "replace": "<xf:include template=\"GoogleSearch_search_tab\" />\n\n$0"
-}

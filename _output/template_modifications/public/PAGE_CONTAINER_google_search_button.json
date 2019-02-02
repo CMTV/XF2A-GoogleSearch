@@ -1,9 +1,0 @@
-{
-    "template": "PAGE_CONTAINER",
-    "description": "Adding google search button",
-    "execution_order": 10,
-    "enabled": true,
-    "action": "str_replace",
-    "find": "<xf:button type=\"submit\" class=\"button--primary\" icon=\"search\" />",
-    "replace": "<div class=\"buttonGroup\">\n\t$0\n\t<xf:button type=\"submit\" formaction=\"{{ link('google-search') }}\"\n\t\t\t   data-xf-init=\"tooltip\" title=\"{{ phrase('GoogleSearch_search_using_google') }}\"\n\t\t\t   class=\"button--primary google-search-button\">\n\t\t<i class=\"fa fa-google\"></i>\n\t</xf:button>\n</div>"
-}

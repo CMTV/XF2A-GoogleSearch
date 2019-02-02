@@ -1,0 +1,9 @@
+{
+    "template": "search_form",
+    "description": "Google search tab",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<a href=\"{{ link('search') }}\" class=\"tabs-tab{{ !$type ? ' is-active' : '' }}\">{{ phrase('search_everything') }}</a>",
+    "replace": "<a href=\"{{ link('search', null, {'type': 'google'}) }}\" \n   class=\"tabs-tab{{ $type == 'google' ? ' is-active' : '' }}\">\n\t{{ phrase(\"CMTV_GoogleSearch_google_search\") }}\n</a>\n\n$0"
+}

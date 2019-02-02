@@ -1,1 +1,0 @@
-If enabled, automatically performs Google search if xenForo search engine did not find anything or can't perform a search for whatever reason.

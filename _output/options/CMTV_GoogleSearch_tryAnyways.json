@@ -7,7 +7,6 @@
     "validation_method": "",
     "default_value": "1",
     "relations": {
-        "GoogleSearch_options": 110,
-        "searchOptions": 210
+        "CMTV_GoogleSearch": 110
     }
 }

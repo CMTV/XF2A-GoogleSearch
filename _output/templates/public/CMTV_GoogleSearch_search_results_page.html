@@ -1,0 +1,21 @@
+<xf:title>{{ phrase('CMTV_GoogleSearch_google_search_results') }}</xf:title>
+
+<xf:breadcrumb href="{{ link('search', null, {'type': 'google'}) }}">{{ phrase('search') }}</xf:breadcrumb>
+
+<xf:head option="robots"><meta name="robots" content="noindex" /></xf:head>
+
+<xf:if is="$tryAnyways">
+	<div class="blockMessage blockMessage--important blockMessage--CMTV_GoogleSearch blockMessage--iconic">
+		<xf:if is="$header">
+			<b>{$header}</b><br>
+		</xf:if>
+		
+		{$body} {{ phrase('CMTV_GoogleSearch_we_tried_google_search') }}
+	</div>
+</xf:if>
+
+<div class="block">
+	<div class="block-container">
+		<xf:macro name="search_results" template="CMTV_GoogleSearch_macros" />
+	</div>
+</div>

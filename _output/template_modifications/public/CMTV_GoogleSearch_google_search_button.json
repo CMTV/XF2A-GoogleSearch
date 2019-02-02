@@ -1,0 +1,9 @@
+{
+    "template": "PAGE_CONTAINER",
+    "description": "Google search button in search popup",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:button type=\"submit\" class=\"button--primary\" icon=\"search\" />",
+    "replace": "<div class=\"buttonGroup\">\n\t$0\n\t<xf:button type=\"submit\" \n\t\t\t   formaction=\"{{ link('google-search') }}\"\n\t\t\t   data-xf-init=\"tooltip\"\n\t\t\t   title=\"{{ phrase('CMTV_GoogleSearch_search_using_google') }}\"\n\t\t\t   class=\"button--primary google-search-button\"\n\t\t\t   icon=\"fab fa-google\"\n\t\t\t   style=\"min-width: 40px;\">\n\t\t\t<xf:fa icon=\"fab fa-google\" />\n\t</xf:button>\n</div>"
+}

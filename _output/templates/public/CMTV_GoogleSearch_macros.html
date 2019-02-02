@@ -1,0 +1,23 @@
+<xf:macro name="search_results" arg-searchBox="{{ true }}">
+	<xf:css src="CMTV_GoogleSearch_embed.less" />
+
+	<div class="google-search-results">
+		<xf:js>
+			(function() {
+				var cx = "{$xf.options.CMTV_GoogleSearch_GSEID}";
+				var gcse = document.createElement('script');
+				gcse.type = 'text/javascript';
+				gcse.async = true;
+				gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(gcse, s);
+			})();
+		</xf:js>
+
+		<xf:if is="$searchBox">
+			<gcse:search></gcse:search>
+		<xf:else />
+			<gcse:searchresults-only></gcse:searchresults-only>
+		</xf:if>
+	</div>
+</xf:macro>

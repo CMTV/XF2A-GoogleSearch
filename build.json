@@ -1,9 +1,8 @@
 {
     "additional_files": [
-        "js/GoogleSearch"
+        "js/CMTV/GoogleSearch"
     ],
-    
     "minify": [
-        "js/GoogleSearch/search_results_tabs.js"
+        "js/CMTV/GoogleSearch/search-results-tabs.js"
     ]
 }

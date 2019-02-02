@@ -1,0 +1,9 @@
+{
+    "template": "core_blockmessage.less",
+    "description": "Frown face that is used in \"try anyways\" mode",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": ".m-blockMessageVariants()\n{",
+    "replace": "$0\n\n&--important&--CMTV_GoogleSearch&--iconic:before\n{\n\t.m-faContent(@fa-var-frown-open);\n}"
+}

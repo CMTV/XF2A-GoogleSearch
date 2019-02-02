@@ -1,0 +1,19 @@
+<xf:js prod="CMTV/GoogleSearch/search-results-tabs.min.js"
+	   dev="CMTV/GoogleSearch/search-results-tabs.js"
+	   addon="CMTV/GoogleSearch" />
+
+<h2 class="block-tabHeader block-tabHeader--searchResultsTabs tabs hScroller" data-xf-init="h-scroller results-tabs">
+	<span class="hScroller-scroll">
+		<span class="tabs-tab is-active forum-results-tab">
+			{{ phrase('CMTV_GoogleSearch_forum_search') }}
+		</span>
+
+		<span class="tabs-tab google-results-tab">
+			{{ phrase('CMTV_GoogleSearch_google_search') }}
+		</span>
+	</span>
+</h2>
+
+<div class="block-body google-results" style="display: none;">
+	<xf:macro name="search_results" arg-searchBox="{{ false }}" template="CMTV_GoogleSearch_macros" />
+</div>
